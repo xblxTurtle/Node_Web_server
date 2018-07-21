@@ -11,7 +11,7 @@ hbs.registerHelper('uppercase',(text)=>{return text.toUpperCase();});
 app.set('view engine','hbs');
 app.use(express.static(__dirname+'/public'));
 app.use((req,resp,next)=>{
-  fs.appendFile('server.log', `Time: ${new Date().toString()}, Request: ${req.method}, Response: ${resp.statusCode} \n`, (err) => {
+  fs.appendFile('server.log', `Time: ${new Date().toString()}, URL: ${req.url} , Request: ${req.method}, Response: ${resp.statusCode} \n`, (err) => {
     if (err) {
     console.log(`Error writing to log file: ${err}`)
   }
@@ -24,7 +24,7 @@ app.use((req,resp,next)=>{
 
 app.get('/', (req, resp)=>{
   resp.render('home.hbs', {
-    title: 'About page title',
+    title: 'Home page title',
     welcome: 'Welcome message'
   });
 });
@@ -34,6 +34,13 @@ app.get('/about', (req, resp)=> {
     title: 'About page title'
   });
 });
+
+app.get('/projects', (req, resp)=>{
+  resp.render('projects.hbs', {
+    title: 'Projects page title'
+  });
+});
+
 
 app.get('/bad', (req, resp)=>{
   resp.send({error: 'Unable to process request.'});
