@@ -7,5 +7,4 @@ describe('test method', function() {
     // navigate to root and check the the response is "Welcome"
     request(app).get('/test').expect('Welcome', done);
   });
-
 });
