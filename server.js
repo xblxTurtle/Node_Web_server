@@ -52,7 +52,6 @@ app.get('/projects', (req, resp) => {
   });
 });
 
-
 app.get('/bad', (req, resp) => {
   resp.send({error: 'Unable to process request.'});
 });
