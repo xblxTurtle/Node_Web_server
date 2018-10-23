@@ -4,6 +4,7 @@ node {
       checkout scm
     }
     stage('Environment') {
+      sh 'whoami'
       sh 'git --version'
       echo "Branch: ${env.BRANCH_NAME}"
       sh 'docker -v'
