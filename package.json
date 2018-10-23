@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "pretest": "eslint --ignore-path .gitignore .",
     "test": "mocha ./test/test.js",
     "start": "node server.js"
   },
